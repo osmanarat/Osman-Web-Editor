@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        <title>Osman Web Edıtor</title>
+        <!-- ACE EDITOR LIBS START **-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+        <!--ACE EDITOR KOD SYNTAX DUZENLEYEN LIB -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-beautify.js" type="text/javascript" charset="utf-8"></script>    
+         <!-- EDITOR KOD SYNTAX DUZENLEYEN LIB -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.js" type="text/javascript" charset="utf-8"></script>    
+        <!--ACE EDITOR LIBS END **-->
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    
+    <body onload='ready()'>
+        <div>
+            <button id="saveButton" onclick="saveCode()"class="buttonRight glow-on-hover"><i class="fas fa-save">&nbsp;Kaydet</i> </button>
+        </div>
+        <div class="selectWrapper">
+            <select id="templateSelectBox" class="selectBox" onchange="getCode(this.options[this.selectedIndex].value)">
+                <option value="0"> Templates </option>
+            </select> 
+            <button id="newButton" onclick="newTemplate()"class=" glow-on-hover"><i class="fas fa-plus">&nbsp; Yeni</i> </button>
+        </div>
+        <div id='container'>
+            <iframe id='iframe' frameBorder="0">
+            </iframe>
+            <div id='editors'>
+                <div class = 'fab fa-html5 htmlbabel fa-2x' id = 'labels'>
+                    <button type="button" class="button minButton" onclick="minEditor()"><i class='fa fa-window-minimize'></i></button>
+                    <span id='text'>HTML</span>
+                </div>
+                <div class = 'fab fa-css3-alt fa-2x cssLabel' id='labels'>
+                    <span id='text'>CSS</span>
+                </div>
+                <div class = 'fab fa-js fa-2x jsLabel'id='labels'>
+                    <button type="button" class="button downloadCode" onclick="downloadCode()"><i class='fa fa-download'> Download</i></button>
+                    <span id='text'>JS</span>
+                    <button type="button" class="button buttonRight" onclick="maxEditor()"><i class='fa fa-window-maximize'></i></button>
+                </div>
+                <div class='editor' id='htmlEditor'></div>
+                <div class='editor' id='cssEditor'></div>
+                <div class='editor' id='jsEditor'></div>
+
+                <input type="text"id="jsCode" hidden/>
+                <input type="text"id="htmlCode" hidden/>
+                <input type="text"id="cssCode" hidden/>
+            </div>
+    
+
+        </div>
+    
+        <script type="text/javascript" src="app.js"></script>
+
+        <script>
+            $(function() {
+            $( "#htmlEditor").resizable();
+            });
+        </script>
+
+    </body>
+
+</html>
+
+
