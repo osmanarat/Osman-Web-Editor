@@ -27,6 +27,7 @@ function loadHTMLEditor() {
     // editor iceriginde bir şey değiştirdiğinde çalışıyor.
     htmlEditor.getSession().on('change', function() {
         update();
+        cacheSet();
     });
 
     // imleci edıtor ıcerısıne focusladım.
@@ -85,6 +86,7 @@ function loadJSEditor() {
     jsEditor.setValue(defaultJSValue,1);
     jsEditor.getSession().on('change', function() {
         update();
+        cacheSet();
     });
     jsEditor.focus();
     jsEditor.setOptions({
